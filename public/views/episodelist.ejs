@@ -8,31 +8,44 @@
   </head>
   <body>
     <%- include('partials/navbar') %>
-    <h1>Search for a TV Show</h1>
+    <h1>Episode Guide</h1>
     <form action="/episodes" method="GET">
-      <label for="showName">Enter Show Name:</label>
-      <input type="text" id="showName" name="showName" />
-      <button type="submit">Search</button>
+      <div class="input-container">
+        <input
+          type="text"
+          id="showName"
+          required=""
+          value="Lost"
+          name="showName"
+        />
+        <label for="input" class="label">Enter TV show name</label>
+        <div class="underline"></div>
+      </div>
+      <div style="display: flex; justify-content: center">
+        <button type="submit">Search</button>
+      </div>
     </form>
     <h1>Episodes List</h1>
-    <ul>
-      <% episodes.forEach(episode => { %>
-      <li>
-        <h2><%= episode.name %></h2>
-        <p><strong>Season:</strong> <%= episode.season %></p>
-        <p><strong>Episode Number:</strong> <%= episode.number %></p>
-        <p><strong>Airdate:</strong> <%= episode.airdate %></p>
-        <p><strong>Airtime:</strong> <%= episode.airtime %></p>
-        <p><strong>Runtime:</strong> <%= episode.runtime %> minutes</p>
-        <p><strong>Rating:</strong> <%= episode.rating.average %></p>
-        <% if (episode.image && episode.image.medium) { %>
-        <img src="<%= episode.image.medium %>" alt="<%= episode.name %>" />
-        <% } %>
-        <p><strong>Summary:</strong> <%= episode.summary %></p>
-        <p><a href="<%= episode.url %>">More details</a></p>
-      </li>
-      <% }); %>
-    </ul>
+    <div class="episodes-container">
+      <ul>
+        <% episodes.forEach(episode => { %>
+        <li>
+          <h2><%= episode.name %></h2>
+          <p><strong>Season:</strong> <%= episode.season %></p>
+          <p><strong>Episode Number:</strong> <%= episode.number %></p>
+          <p><strong>Airdate:</strong> <%= episode.airdate %></p>
+          <p><strong>Airtime:</strong> <%= episode.airtime %></p>
+          <p><strong>Runtime:</strong> <%= episode.runtime %> minutes</p>
+          <p><strong>Rating:</strong> <%= episode.rating.average %></p>
+          <% if (episode.image && episode.image.medium) { %>
+          <img src="<%= episode.image.medium %>" alt="<%= episode.name %>" />
+          <% } %>
+          <p><strong>Summary:</strong> <%= episode.summary %></p>
+          <p><a href="<%= episode.url %>">More details</a></p>
+        </li>
+        <% }); %>
+      </ul>
+    </div>
   </body>
   <script src="../js/script.js"></script>
 </html>

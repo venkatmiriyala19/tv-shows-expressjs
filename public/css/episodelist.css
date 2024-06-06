@@ -1,7 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cutive&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;700&family=REM:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap");
 body {
   background: url("https://img.freepik.com/premium-photo/chinese-style-gradient-blue-watercolor-background-hand-painted-illustration-cover-design-material_784069-7.jpg?w=360");
   /* background-repeat: no-repeat; */
   background-size: cover;
   margin: 0;
   padding: 0;
+}
+h1 {
+  font-family: "Special Elite", system-ui;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 5vh;
+  font-size: 8vh;
+  margin-top: 4vh;
+  text-align: center;
+}
+
+.input-container {
+  position: relative;
+  margin: 50px auto;
+  width: 200px;
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.input-container input[type="text"] {
+  font-size: 20px;
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  padding: 5px 0;
+  background-color: transparent;
+  outline: none;
+  font-family: "Special elite", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.input-container .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ccc;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.input-container input[type="text"]:focus ~ .label,
+.input-container input[type="text"]:valid ~ .label {
+  top: -20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.input-container .underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background-color: #333;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+.input-container input[type="text"]:focus ~ .underline,
+.input-container input[type="text"]:valid ~ .underline {
+  transform: scaleX(1);
+}
+button {
+  --primary-color: #111;
+  --secondary-color: #fff;
+  --hover-color: #fff;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: -5vh;
+}
+
+button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+button:hover {
+  background-color: #b4e3fa;
+  color: #111;
+  cursor: pointer;
+}
+
+button:hover .arrow {
+  background: var(#111);
+}
+
+button:hover .arrow:before {
+  background: var(#111);
+  right: 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+li {
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+.episodes-container {
+  margin: 5vw;
 }
