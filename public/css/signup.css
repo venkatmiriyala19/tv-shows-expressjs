@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cutive&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;700&family=REM:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap");
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.outer-container {
+  background: url("https://img.freepik.com/premium-photo/chinese-style-gradient-blue-watercolor-background-hand-painted-illustration-cover-design-material_784069-7.jpg?w=360");
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-position: center -100px; */
+  /* background-color: #212121; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* margin-top: 25vh; */
+  /* height: auto;
+  width: 40vw; */
+  /* margin-left: 25vw; */
+}
+.inner-container {
+  background-color: rgb(255, 255, 255, 0.8);
+  /* background: url("https://img.freepik.com/premium-photo/chinese-style-gradient-blue-watercolor-background-hand-painted-illustration-cover-design-material_784069-7.jpg?w=360"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  width: 30vw;
+  box-sizing: border-box;
+  border-radius: 20px;
+}
+h2 {
+  text-align: center;
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+label {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  /* margin-bottom: 1rem; */
+}
+input {
+  width: 20vw;
+  height: 6vh;
+  margin-bottom: 2vh;
+  padding-left: 2.4rem;
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 6px;
+  border: 0.5px outset #6d6a6a;
+  margin-top: 1vh;
+  /* font-size: 0.8rem; */
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+}
+.icon {
+  position: absolute;
+  left: 1.2vw;
+  top: 2.7vh;
+  width: 20px;
+  height: auto;
+  color: black;
+}
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+button {
+  --primary-color: #111;
+  --secondary-color: #fff;
+  --hover-color: #fff;
+  --arrow-width: 10px;
+  --arrow-stroke: 2px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 20px;
+  color: var(--secondary-color);
+  padding: 1em 1.8em;
+  background: var(--primary-color);
+  display: flex;
+  transition: 0.2s background;
+  align-items: center;
+  gap: 0.6em;
+  font-weight: bold;
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+button .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button .arrow {
+  margin-top: 1px;
+  width: var(--arrow-width);
+  background: var(--primary-color);
+  height: var(--arrow-stroke);
+  position: relative;
+  transition: 0.2s;
+}
+
+button .arrow::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  border: solid var(--secondary-color);
+  border-width: 0 var(--arrow-stroke) var(--arrow-stroke) 0;
+  display: inline-block;
+  top: -3px;
+  right: 3px;
+  transition: 0.2s;
+  padding: 3px;
+  transform: rotate(-45deg);
+}
+
+button:hover {
+  background-color: #b4e3fa;
+  color: #111;
+  cursor: pointer;
+}
+
+button:hover .arrow {
+  background: var(#111);
+}
+
+button:hover .arrow:before {
+  background: var(#111);
+  right: 0;
+}
+.login-redirect {
+  text-align: center;
+  font-family: "Kanit", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin-bottom: 1rem;
+}
+.login-redirect a {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  font-size: 1.1rem;
+}

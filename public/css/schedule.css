@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cutive&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;700&family=REM:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap");
+body {
+  background: url("https://img.freepik.com/premium-photo/chinese-style-gradient-blue-watercolor-background-hand-painted-illustration-cover-design-material_784069-7.jpg?w=360");
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-family: "Special Elite", system-ui;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 5vh;
+  font-size: 8vh;
+  text-align: center;
+}
+.outer-container {
+  margin: 3vw;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+li {
+  list-style: none;
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+  margin: 2vh 0;
+}
+h2 {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+strong {
+  font-family: "Special Elite", system-ui;
+  font-weight: 600;
+  font-style: normal;
+}
+.img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4vh 0;
+}
+.list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}

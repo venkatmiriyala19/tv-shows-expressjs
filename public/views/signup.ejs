@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/signup.css" />
+    <script
+      src="https://kit.fontawesome.com/ef195724ff.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="outer-container">
+      <div class="inner-container">
+        <h2>Sign Up</h2>
+        <form id="signup-form">
+          <div style="padding-left: 2.5rem">
+            <div>
+              <label for="email">Email</label>
+            </div>
+            <div class="input-container">
+              <i
+                class="fa-solid fa-envelope icon"
+                style="width: 20px; height: auto"
+              ></i>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="Email"
+              />
+            </div>
+            <div>
+              <label for="name">Name</label>
+            </div>
+            <div class="input-container">
+              <i class="fa-solid fa-signature icon" style="left: 0.8vw"></i>
+              <input
+                type="name"
+                id="name"
+                name="name"
+                required
+                placeholder="Name"
+              />
+            </div>
+            <div>
+              <label for="password">Password</label>
+            </div>
+            <div class="input-container">
+              <i class="fa-solid fa-lock icon"></i>
+
+              <input
+                type="password"
+                id="password"
+                name="password"
+                required
+                placeholder="Password"
+              />
+            </div>
+            <div>
+              <label for="confirm-password">Confirm Password</label>
+            </div>
+            <div class="input-container">
+              <i class="fa-solid fa-lock icon"></i>
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirm-password"
+                required
+                placeholder="Confirm Password"
+              />
+            </div>
+          </div>
+          <div class="submit-btn">
+            <button type="submit">
+              Sign Up
+              <div class="arrow-wrapper">
+                <div class="arrow"></div>
+              </div>
+            </button>
+          </div>
+          <div class="login-redirect">
+            Already have an account? <a href="/login"> Login</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("signup-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirm-password").value;
+          const name = document.getElementById("name").value;
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match. Please try again.");
+            return;
+          }
+          try {
+            const response = await fetch("/signup", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email, password, name }),
+            });
+
+            if (response.ok) {
+              const data = await response.json();
+              console.log(data);
+              const { userId } = data;
+              window.location.href = `/dashboard?userId=${userId}`;
+            } else {
+              const errorMessage = await response.text();
+              throw new Error(errorMessage);
+            }
+          } catch (error) {
+            console.error(error);
+          }
+        });
+    </script>
+  </body>
+</html>

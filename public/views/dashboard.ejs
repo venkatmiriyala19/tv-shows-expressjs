@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="../css/signup.css" /> -->
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cutive&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;700&family=REM:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap");
+
+      .tv-show {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #ccc;
+        padding: 10px 0;
+      }
+
+      .tv-show img {
+        width: 100px;
+        height: auto;
+        margin-right: 20px;
+      }
+
+      .tv-show .details {
+        display: flex;
+        flex-direction: column;
+        margin-top: 5vh;
+        margin-bottom: 5vh;
+      }
+
+      .tv-show .details h3 {
+        margin: 0;
+        font-size: 2em;
+        font-family: "Special Elite", system-ui;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .tv-show .details p {
+        margin: 5px 0;
+        font-family: "Courier Prime", monospace;
+        font-weight: 500;
+        font-style: normal;
+      }
+      .tv-show .details strong {
+        font-family: "Special Elite", system-ui;
+        font-weight: 600;
+        font-style: normal;
+      }
+
+      .tv-shows-container {
+        margin-top: 20px;
+      }
+      img {
+        min-width: 10vw;
+      }
+    </style>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <%- include('partials/navbar') %>
+
+    <!-- Welcome message -->
+    <div class="outer-container-dashboard" style="flex-direction: column">
+      <h1 id="welcome-message">Welcome</h1>
+      <div class="welcome-description">
+        Discover TV shows with ease using our website powered by the
+        <span class="tvmaze">TVmaze API</span>. Find synopses, cast details,
+        ratings, and more for your favorite shows, old and new. Start exploring
+        now!
+      </div>
+      <div class="input-container">
+        <input type="text" id="showName" required="" value="Lost" />
+        <label for="input" class="label">Enter TV show name</label>
+        <div class="underline"></div>
+      </div>
+
+      <button id="searchBtn">Search</button>
+
+      <div class="submit-btn">
+        <button>
+          <a href="/login" style="text-decoration: none"> Log out</a>
+          <div class="arrow-wrapper">
+            <div class="arrow"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Container -->
+
+    <div class="tv-shows-container" id="tvShowsContainer"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const userId = urlParams.get("userId");
+
+        fetch(`/api/dashboard?userId=${userId}`)
+          .then((response) => response.json())
+          .then((data) => {
+            const welcomeMessage = document.getElementById("welcome-message");
+
+            welcomeMessage.innerText = `Welcome to StreamFlicks, ${data.name}`;
+          })
+          .catch((error) => console.error("Error:", error));
+
+        document.getElementById("searchBtn").addEventListener("click", () => {
+          const showName = document.getElementById("showName").value;
+
+          fetch(`/api/search?q=${showName}`)
+            .then((response) => response.json())
+            .then((data) => {
+              const tvShowsContainer =
+                document.getElementById("tvShowsContainer");
+              tvShowsContainer.innerHTML = "";
+
+              data.forEach((item) => {
+                const show = item.show;
+                const showElement = document.createElement("div");
+                showElement.classList.add("tv-show");
+
+                const imageUrl = show.image
+                  ? show.image.medium
+                  : "default-image-url.jpg";
+                showElement.innerHTML = `
+            <img src="${imageUrl}" alt="${show.name}" />
+            <div class="details">
+              <h3>${show.name}</h3>
+              <p>${show.summary}</p>
+              <p><strong class="subheadings" >Genres:</strong> ${show.genres.join(
+                ", "
+              )}</p>
+              <p><strong>Status:</strong> ${show.status}</p>
+              <p><strong>Rating:</strong> ${show.rating.average}</p>
+              <p><strong>Premiered:</strong> ${show.premiered}</p>
+              
+            </div>
+          `;
+                tvShowsContainer.appendChild(showElement);
+              });
+
+              // Scroll to the TV shows container after rendering is complete
+              tvShowsContainer.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            })
+            .catch((error) => console.error("Error:", error));
+        });
+      });
+    </script>
+
+    <script src="../js/script.js"></script>
+  </body>
+</html>

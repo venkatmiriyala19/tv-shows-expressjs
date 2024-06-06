@@ -1,0 +1,258 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cutive&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;700&family=REM:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.nav {
+  position: relative;
+  height: 80px;
+  width: 100%;
+  background: black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  color: aliceblue;
+}
+
+.navLogo {
+  position: absolute;
+  top: 5vh;
+  left: 5vw;
+  color: white;
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+
+  margin-top: 1.5vh;
+  font-size: 1.5em;
+}
+
+.navItemContainer {
+  height: 80px;
+  width: 800px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+}
+
+.navItem {
+  height: 100%;
+  width: 200px;
+  text-align: center;
+  line-height: 80px;
+  font-size: 1.5em;
+  font-weight: bolder;
+  z-index: 2;
+  cursor: pointer;
+  margin: 0;
+  user-select: none;
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 1.5vh;
+}
+
+.navItemActiveContainer {
+  position: absolute;
+  height: 60px;
+  width: 260px;
+  bottom: 0;
+  right: 570px;
+  z-index: 1;
+  transition: right 0.3s ease;
+  margin: 0;
+  color: black;
+}
+
+.navItemActive {
+  position: absolute;
+  height: 60px;
+  width: 260px;
+  margin: 0;
+  color: black;
+}
+
+.navItemActiveLeft,
+.navItemActiveCenter,
+.navItemActiveRight {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  color: black;
+}
+
+.navItemActiveLeft {
+  background: #addff9;
+  width: 30px;
+  height: 60px;
+  left: 0;
+  border-radius: 0px 0px 0px 0px;
+  z-index: 1;
+  margin: 0;
+  color: black;
+}
+.navItemActiveCenter {
+  background: #addff9;
+  width: 200px;
+  height: 60px;
+  left: 30px;
+  border-radius: 30px 30px 0px 0px;
+  z-index: 1;
+  margin: 0;
+}
+.navItemActiveRight {
+  background: #addff9;
+  width: 30px;
+  height: 60px;
+  right: 0;
+  border-radius: 0px 0px 0px 0px;
+  z-index: 1;
+  margin: 0;
+}
+
+.navItemActiveCopyLeft,
+.navItemActiveCopyCenter,
+.navItemActiveCopyRight {
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  color: black;
+}
+
+.navItemActiveCopyLeft {
+  background: #addff9;
+  width: 30px;
+  height: 60px;
+  left: 0;
+  border-radius: 0px 0px 30px 0px;
+  background: black;
+  z-index: 2;
+  margin: 0;
+}
+.navItemActiveCopyCenter {
+  background: #addff9;
+  width: 200px;
+  height: 60px;
+  left: 30px;
+  border-radius: 30px 30px 0px 0px;
+  z-index: 2;
+  margin: 0;
+}
+.navItemActiveCopyRight {
+  background: #addff9;
+  width: 30px;
+  height: 60px;
+  right: 0;
+  border-radius: 0px 0px 0px 30px;
+  background: black;
+  z-index: 2;
+  margin: 0;
+}
+
+.burgerMenu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: black;
+}
+
+.burgerMenu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #addff9;
+  margin: 4px 0;
+  color: black;
+}
+
+.mobileNav {
+  padding-top: 20px;
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  background: black;
+  width: 100%;
+  text-align: left;
+  color: black;
+}
+
+.mobileNavItem {
+  height: 70px;
+  width: 100%;
+  line-height: 70px;
+  font-size: 1.5em;
+  padding-left: 40px;
+  color: black;
+  font-weight: bolder;
+  cursor: pointer;
+  z-index: 2;
+  color: black;
+}
+
+.mobilenavItemActiveContainer {
+  position: absolute;
+  height: 300px;
+  width: 100%;
+  bottom: 210px;
+  right: 0;
+  z-index: 1;
+  transition: right 0.3s ease;
+  margin: 0;
+  color: black;
+}
+
+.mobilenavItemActive {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 70px;
+  width: 100%;
+  margin: 0;
+  color: black;
+}
+
+.mobilenavItemActiveCenter {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  width: calc(100vw - 20px);
+  height: 50px;
+  background: #addff9;
+  border-radius: 35px 0 0 35px;
+  color: black;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+}
+a:visited {
+  color: inherit;
+}
+@media (max-width: 1050px) {
+  .navItemContainer {
+    display: none;
+  }
+
+  .burgerMenu {
+    display: flex;
+  }
+}
+.navItem.active,
+.mobileNavItem.active {
+  color: black;
+}

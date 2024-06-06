@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schedule Details</title>
+    <link rel="stylesheet" href="../css/schedule.css" />
+    <style>
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-gap: 20px;
+      }
+
+      .item {
+        border: 1px solid #ccc;
+        padding: 20px;
+      }
+
+      .item img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="outer-container">
+      <h1 id="scheduleTitle">Today's Schedule Details</h1>
+      <div class="container">
+        <% showEpisodePairs.forEach(pair => { %> <% if (pair.show.image &&
+        pair.show.image.medium) { %>
+        <div class="item">
+          <h2>Show Details</h2>
+          <ul>
+            <li><strong>Show Name:</strong> <%= pair.show.name %></li>
+            <li><strong>Show Type:</strong> <%= pair.show.type %></li>
+
+            <!-- Add other show details here -->
+            <div class="img">
+              <img
+                src="<%= pair.show.image.medium %>"
+                alt="<%= pair.show.name %>"
+              />
+            </div>
+          </ul>
+          <h2>Episode Details</h2>
+          <ul>
+            <li><strong>Episode Name:</strong> <%= pair.episode.name %></li>
+            <li><strong>Season Number:</strong> <%= pair.episode.season %></li>
+            <li><strong>Episode Number:</strong> <%= pair.episode.number %></li>
+            <!-- Add other episode details here -->
+          </ul>
+        </div>
+        <% } %> <% }); %>
+      </div>
+    </div>
+  </body>
+  <script src="../js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const scheduleTitle = document.getElementById("scheduleTitle");
+      const today = new Date();
+      const formattedDate = `(${today.getDate()}/${
+        today.getMonth() + 1
+      }/${today.getFullYear()})`; // Format the date as needed
+      scheduleTitle.textContent += " " + formattedDate;
+    });
+  </script>
+</html>
