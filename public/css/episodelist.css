@@ -157,3 +157,19 @@ img {
 .episodes-container {
   margin: 5vw;
 }
+h2 {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  min-height: 15vh;
+}
+strong {
+  font-family: "Special Elite", system-ui;
+  font-weight: 600;
+  font-style: normal;
+}
+p {
+  font-family: "Courier Prime", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
