@@ -15,5 +15,8 @@
     "firebase": "^10.12.1",
     "firebase-admin": "^12.1.1",
     "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.4"
   }
 }

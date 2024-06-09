@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&family=Archivo:ital,wght@0,100..900;1,100..900&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cutive&family=Kanit&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:wght@400;500;700&family=REM:ital,wght@0,100..900;1,100..900&family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Special+Elite&display=swap");
+body {
+  background: url("https://img.freepik.com/premium-photo/chinese-style-gradient-blue-watercolor-background-hand-painted-illustration-cover-design-material_784069-7.jpg?w=360");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.center-container {
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  /* text-decoration: underline; */
+  margin-top: 20vh;
+}
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+  height: 120px;
+  width: 100%;
+  padding-top: 10px;
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+}
+
+.wrapper .icon-1 {
+  position: relative;
+  background: #fff;
+  border-radius: 50%;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  font-size: 14px;
+  background: #fff;
+  color: #fff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #fff;
+  bottom: -3px;
+  left: 50%;
+  transform: translate(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon-1:hover .tooltip {
+  top: -45px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon-1:hover span,
+.wrapper .icon-1:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .facebook:hover,
+.wrapper .facebook:hover .tooltip,
+.wrapper .facebook:hover .tooltip::before {
+  background: #1877f2;
+  color: #fff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1da1f2;
+  color: #fff;
+}
+
+.wrapper .instagram:hover,
+.wrapper .instagram:hover .tooltip,
+.wrapper .instagram:hover .tooltip::before {
+  background: #e4405f;
+  color: #fff;
+}
+.button-icon {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.icon {
+  border: 3px #fff solid;
+
+  background-color: #fff;
+  padding: 10px 10px 5px 10px;
+}
+
+.icon svg {
+  width: 25px;
+  height: 23px;
+}
+
+.cube {
+  transition: all 0.4s;
+  transform-style: preserve-3d;
+  width: 200px;
+  height: 20px;
+}
+
+.button-icon:hover {
+  border-color: #fff;
+}
+
+.button-icon:hover .cube {
+  transform: rotateX(90deg);
+}
+
+.side {
+  position: absolute;
+  height: 47px;
+  width: 200px;
+  display: flex;
+  font-size: 0.8em;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+}
+
+.top {
+  background: #fff;
+  color: #fff;
+  transform: rotateX(-90deg) translate3d(0, 13.5px, 2em);
+}
+
+.front {
+  background: #222229;
+  color: #fff;
+  transform: translate3d(0, 0, 1em);
+}
+.button-icon {
+  margin-top: 6vh;
+  margin-right: 10vw;
+}
+/* .gith {
+  display: flex;
+  justify-content: center;
+  margin-top: 30vh;
+} */
+h2 {
+  text-align: center;
+  font-family: "Special Elite", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  margin-top: 10vh;
+}

@@ -35,6 +35,9 @@ app.get("/login", (req, res) => {
 app.get("/dashboard", (req, res) => {
   res.render("dashboard");
 });
+app.get("/about", (req, res) => {
+  res.render("about");
+});
 app.get("/schedule", async (req, res) => {
   try {
     const fetch = await import("node-fetch");
